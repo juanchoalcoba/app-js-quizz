@@ -5,17 +5,27 @@ import {gradientDark} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import  SyntaxHighlighter from 'react-syntax-highlighter'
 
 
+
+const getBackgroundColor = (info: QuestionType, index: number) => {
+        const {userSelectedAnswer, correctAnswer} = info
+
+        if(userSelectedAnswer == null) return 'transparent'
+        if(index !== correctAnswer && index !== userSelectedAnswer) return 'transparent'
+        if(index === correctAnswer) return 'green'
+        if(index === userSelectedAnswer) return 'red'
+
+        return 'transparent'
+    }
+
+
 const Question = ({info}: {info: QuestionType}) => {
      const selectAnswer = useQquestionsStore((state) => state.selectAnswer);
 
-     const handleClick = (answerIndex: number) => {
-    selectAnswer(info.id, answerIndex); // actualiza el estado global
+    const createHandleClick = (answerIndex: number) => () => {
+        selectAnswer(info.id, answerIndex)
+    } 
 
-    const isCorrect = info.correctAnswer === answerIndex;
-    console.log(isCorrect ? "✅ Correcta" : "❌ Incorrecta");
-    alert(isCorrect ? "✅ ¡Respuesta correcta!" : "❌ Respuesta incorrecta");
-  };
-
+    
 
     return (
         <Card variant="outlined" sx={{bgcolor: "#222",  textAlign:"left", marginTop: 4}}>
@@ -30,7 +40,12 @@ const Question = ({info}: {info: QuestionType}) => {
             <List sx={{bgcolor: "#333"}} disablePadding>
                 {info.answers.map((answer, index) => (
                     <ListItem key={index} disablePadding divider>
-                        <ListItemButton onClick={() => handleClick(index)}>
+                        <ListItemButton
+                        disabled={info.userSelectedAnswer != null}
+                        sx={{
+                            backgroundColor: getBackgroundColor(info, index)
+                        }}
+                        onClick={createHandleClick(index)}>
                             <ListItemText  primary={answer} sx={{textAlign:"center"}} />
                         </ListItemButton>
                     </ListItem>
@@ -44,6 +59,7 @@ export const Game = () => {
     const questions = useQquestionsStore(state => state.questions)
     const currentQuestion = useQquestionsStore(state => state.currentQuestion)
 
+    console.log(questions)
     const questionInfo = questions[currentQuestion]
 
 
