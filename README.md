@@ -1,77 +1,82 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# 🎮 app-js-quizz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una **aplicación de preguntas y respuestas** (quiz) moderna, construida con **React + TypeScript**.  
+Incluye interfaz elegante con **Material UI**, manejo de estado global con **Zustand**, y sigue **buenas prácticas de desarrollo** para un código limpio y escalable.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Características
 
-## React Compiler
+- Interfaz responsive y atractiva usando Material UI.
+- Preguntas aleatorias con selección de respuestas.
+- Feedback inmediato sobre respuestas correctas e incorrectas.
+- Estado global centralizado con Zustand.
+- Código tipado con TypeScript para mayor seguridad.
+- Buenas prácticas en componentes y hooks reutilizables.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tecnologías utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** – Biblioteca UI moderna.
+- **TypeScript** – Tipado estático para mayor seguridad.
+- **Vite** – Bundler rápido y eficiente.
+- **Material UI** – Componentes pre-diseñados y estilizados.
+- **Zustand** – Manejo de estado global ligero y fácil de usar.
+- **ESLint / Prettier** – Código limpio y consistente.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Instalación
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clonar el repositorio:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+git clone https://github.com/juanchoalcoba/app-js-quizz.git
+cd app-js-quizz
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-=======
-# app-js-quizz
->>>>>>> 0ef68f3bf4f4af2a38bdf01cd5846e8f1877acf8
+npm install
+# o si usas yarn
+yarn install
+
+
+🧩 Uso
+
+Las preguntas se muestran de manera aleatoria.
+
+Haz clic en la respuesta que creas correcta.
+
+Verás un feedback inmediato si la respuesta es correcta o incorrecta.
+
+El estado global permite llevar el control de las respuestas sin necesidad de props complejas.
+
+✅ Buenas prácticas
+
+Uso de TypeScript para tipado fuerte.
+
+Componentes desacoplados y fáciles de mantener.
+
+Hooks personalizados para lógica reutilizable.
+
+Estado global centralizado con Zustand.
+
+Código formateado con Prettier y reglas de ESLint.
+
+🎨 UI y experiencia
+
+Material UI para diseño moderno y consistente.
+
+Feedback visual inmediato en respuestas correctas/incorrectas.
+
+Diseño responsive para móviles y escritorio.
+
+💡 Próximas mejoras
+
+Timer por pregunta.
+
+Puntuación final y ranking.
+
+Modo de varias categorías.
+
+Animaciones y transiciones más dinámicas.
