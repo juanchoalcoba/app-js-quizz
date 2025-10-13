@@ -2,7 +2,6 @@
   {
     "id": 1,
     "question": "¿Cuál es la manera correcta de declarar una constante en JavaScript?",
-    "code": "const x = 5;\nconsole.log(x); // Imprime 5",
     "answers": ["let x = 5;", "var x = 5;", "const x = 5;", "x := 5;"],
     "correctAnswer": 2
   },
@@ -15,22 +14,21 @@
   },
   {
     "id": 3,
-    "question": "En React, ¿qué hook se utiliza para manejar estado?",
-    "code": "import { useState } from 'react';\n\nconst [count, setCount] = useState(0);",
+    "question": "En React con TypeScript, ¿qué hook se utiliza para manejar el estado local?",
     "answers": ["useState", "useEffect", "useContext", "useReducer"],
     "correctAnswer": 0
   },
   {
     "id": 4,
-    "question": "¿Cuál es la salida de este código en Python?",
-    "code": "print(type([]) == list)  # ¿Qué devuelve?",
-    "answers": ["True", "False", "list", "None"],
-    "correctAnswer": 0
+    "question": "¿Qué imprime el siguiente código en JavaScript?",
+    "code": "console.log(typeof null);",
+    "answers": ["'null'", "'undefined'", "'object'", "'string'"],
+    "correctAnswer": 2
   },
   {
     "id": 5,
     "question": "¿Qué hace el método `.map()` en JavaScript?",
-    "code": "const nums = [1, 2, 3];\nconst doubled = nums.map(n => n * 2);\nconsole.log(doubled); // [2, 4, 6]",
+    "code": "const nums = [1, 2, 3];\nconst doubled = nums.map(n => n * 2);\nconsole.log(doubled);",
     "answers": [
       "Filtra un array",
       "Transforma un array y devuelve uno nuevo",
@@ -41,8 +39,7 @@
   },
   {
     "id": 6,
-    "question": "¿Cómo se define una función anónima en JavaScript?",
-    "code": "const myFunc = function() {\n  console.log('Hola');\n}",
+    "question": "¿Cuál de las siguientes opciones define correctamente una función anónima en JavaScript?",
     "answers": [
       "function myFunc() {}",
       "const myFunc = function() {}",
@@ -54,33 +51,31 @@
   {
     "id": 7,
     "question": "¿Cuál es el propósito del operador `===` en JavaScript?",
-    "code": "console.log(5 === '5'); // false\nconsole.log(5 === 5);   // true",
     "answers": [
       "Comparar valores y tipo de datos",
       "Solo comparar valores",
       "Asignar valores",
-      "Incrementar valores"
+      "Comparar solo objetos"
     ],
     "correctAnswer": 0
   },
   {
     "id": 8,
-    "question": "En CSS, ¿cómo seleccionas todos los elementos `<p>` dentro de un `<div>`?",
-    "code": "div p {\n  color: blue;\n}",
-    "answers": ["div p {}", "p div {}", "div > p {}", "#div p {}"],
+    "question": "¿Qué valor devuelve el siguiente código?",
+    "code": "Boolean('false');",
+    "answers": ["true", "false", "undefined", "Error"],
     "correctAnswer": 0
   },
   {
     "id": 9,
     "question": "¿Qué imprime este código en JavaScript?",
-    "code": "console.log([1, 2, 3].includes(2)); // ¿Qué imprime?",
+    "code": "console.log([1, 2, 3].includes(2));",
     "answers": ["true", "false", "2", "undefined"],
     "correctAnswer": 0
   },
   {
     "id": 10,
     "question": "En TypeScript, ¿cómo defines una variable que puede ser un número o undefined?",
-    "code": "let x: number | undefined;\n\nx = 42;\nconsole.log(x);",
     "answers": [
       "let x: number;",
       "let x: number | undefined;",
@@ -88,5 +83,48 @@
       "let x = number | undefined;"
     ],
     "correctAnswer": 1
+  },
+  {
+    "id": 11,
+    "question": "¿Qué tipo de valor devuelve `Array.find()` en JavaScript?",
+    "answers": [
+      "Un nuevo array con los elementos encontrados",
+      "El primer elemento que cumple la condición o undefined",
+      "Un booleano indicando si existe el valor",
+      "La posición del elemento en el array"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 12,
+    "question": "¿Qué salida produce este código en TypeScript?",
+    "code": "let a: unknown = 'hola';\nlet b: string = a;",
+    "answers": [
+      "Compila sin errores",
+      "Error de tipo en la asignación",
+      "Retorna undefined",
+      "Transforma 'a' en string automáticamente"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": 13,
+    "question": "¿Cuál de las siguientes NO es una palabra reservada en JavaScript?",
+    "answers": ["this", "static", "await", "main"],
+    "correctAnswer": 3
+  },
+  {
+    "id": 14,
+    "question": "¿Qué imprime este código en JavaScript?",
+    "code": "console.log(0 == false, 0 === false);",
+    "answers": ["true true", "true false", "false true", "false false"],
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "¿Qué operador se utiliza en TypeScript para verificar si una propiedad existe en un objeto?",
+    "code": "const obj = { name: 'Juan' };\nconsole.log('name' in obj);",
+    "answers": ["exist", "contains", "in", "has"],
+    "correctAnswer": 2
   }
 ]

@@ -19,7 +19,7 @@ const Question = ({info}: {info: QuestionType}) => {
 
     return (
         <Card variant="outlined" sx={{bgcolor: "#222",  textAlign:"left", marginTop: 4}}>
-            <Typography variant="h5">
+            <Typography variant="h6" sx={{p: 2}}>
                 {info.question}
             </Typography>
 
@@ -31,7 +31,7 @@ const Question = ({info}: {info: QuestionType}) => {
                 {info.answers.map((answer, index) => (
                     <ListItem key={index} disablePadding divider>
                         <ListItemButton onClick={() => handleClick(index)}>
-                            <ListItemText primary={answer} sx={{textAlign:"center"}} />
+                            <ListItemText  primary={answer} sx={{textAlign:"center"}} />
                         </ListItemButton>
                     </ListItem>
                 ))}
