@@ -41,6 +41,11 @@ npm install
 yarn install
 
 
+npm run dev
+
+http://localhost:5173/
+
+
 🧩 Uso
 
 Las preguntas se muestran de manera aleatoria.
