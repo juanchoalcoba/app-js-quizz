@@ -1,8 +1,10 @@
-import {Card,  List, ListItem, ListItemButton, ListItemText, Typography} from '@mui/material'
+import {Card,  IconButton,  List, ListItem, ListItemButton, ListItemText, Stack, Typography} from '@mui/material'
 import { useQquestionsStore } from './store/questions'
 import type { Question as QuestionType } from './types'
 import {gradientDark} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import  SyntaxHighlighter from 'react-syntax-highlighter'
+import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material'
+import { Footer } from './Footer'
 
 
 
@@ -18,7 +20,7 @@ const getBackgroundColor = (info: QuestionType, index: number) => {
     }
 
 
-const Question = ({info}: {info: QuestionType}) => {
+const Question = ({info}: {info: QuestionType})  => {
      const selectAnswer = useQquestionsStore((state) => state.selectAnswer);
 
     const createHandleClick = (answerIndex: number) => () => {
@@ -58,6 +60,8 @@ const Question = ({info}: {info: QuestionType}) => {
 export const Game = () => {
     const questions = useQquestionsStore(state => state.questions)
     const currentQuestion = useQquestionsStore(state => state.currentQuestion)
+    const goNextQuestion = useQquestionsStore(state => state.goNextQuestion)
+    const goPreviousQuestion = useQquestionsStore(state => state.goPreviousQuestion)
 
     console.log(questions)
     const questionInfo = questions[currentQuestion]
@@ -66,7 +70,19 @@ export const Game = () => {
 
     return (
         <>
+        <Stack direction="row" gap={2} alignItems="center" justifyContent="center">
+            <IconButton onClick={goPreviousQuestion} disabled={currentQuestion === 0}>
+                <ArrowBackIosNew />
+            </IconButton>
+
+            {currentQuestion + 1} / {questions.length}
+
+            <IconButton onClick={goNextQuestion} disabled={currentQuestion >= questions.length - 1}>
+                <ArrowForwardIos />
+            </IconButton>
+        </Stack>
         <Question info={questionInfo}/>
+        <Footer />
         </>
     )
 }

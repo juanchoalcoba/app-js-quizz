@@ -7,10 +7,13 @@ interface State {
   currentQuestion: number;
   fetchQquestions: (limit: number) => Promise<void>;
   selectAnswer: (questionId: number, answerIndex: number) => void
+  goNextQuestion: () => void,
+  goPreviousQuestion: () => void
 }
 
 export const useQquestionsStore = create<State>((set, get) => {
   return {
+    loading: false,
     questions: [],
     currentQuestion: 0,
 
@@ -40,6 +43,26 @@ export const useQquestionsStore = create<State>((set, get) => {
             userSelectedAnswer: answerIndex
         }
         set({questions: newQuestions})
-    } 
+    },
+
+    goNextQuestion: () => {
+  const { currentQuestion, questions } = get();
+  const nextQuestion = currentQuestion + 1;
+
+  if (nextQuestion < questions.length) {
+    set({ currentQuestion: nextQuestion });
+  }
+},
+
+goPreviousQuestion: () => {
+  const { currentQuestion } = get();
+  const previousQuestion = currentQuestion - 1;
+
+  if (previousQuestion >= 0) {
+    set({ currentQuestion: previousQuestion });
+  }
+},
+
+
   };
 });
