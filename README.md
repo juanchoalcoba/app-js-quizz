@@ -1,4 +1,4 @@
-# 🎮 app-js-quizz
+# 🎮 Frontend - Plataforma Interactiva de Quiz de JavaScript
 
 Una **aplicación de preguntas y respuestas** (quiz) moderna, construida con **React + TypeScript**.  
 Incluye interfaz elegante con **Material UI**, manejo de estado global con **Zustand**, y sigue **buenas prácticas de desarrollo** para un código limpio y escalable.
@@ -27,61 +27,87 @@ Incluye interfaz elegante con **Material UI**, manejo de estado global con **Zus
 
 ---
 
+## ⚡ Funcionalidades Implementadas
+
+- Login y registro de usuarios mediante modal.
+
+- Logout con confirmación para mejorar UX.
+
+- Estado global del juego usando Zustand: manejo de preguntas, respuestas del usuario, puntaje y progreso.
+
+- Renderizado dinámico de preguntas con selección de respuestas y animación de confeti para respuestas correctas.
+
+- Pantalla inicial para seleccionar dificultad antes de comenzar el juego (Fácil, Normal, Difícil).
+
+- Contador de puntaje correcto, incorrecto y sin responder.
+
+---
+
+
 ## 🚀 Instalación
 
 Clonar el repositorio:
 
-```bash
+```
 git clone https://github.com/juanchoalcoba/app-js-quizz.git
 cd app-js-quizz
+```
+---
 
+```
 
 npm install
 # o si usas yarn
 yarn install
+```
 
+```
 
 npm run dev
 
-http://localhost:5173/
+```
+---
 
+Servidor que usara el frontend: http://localhost:5173/
 
-🧩 Uso
+---
 
-Las preguntas se muestran de manera aleatoria.
+## 🧩 Uso
 
-Haz clic en la respuesta que creas correcta.
+- Las preguntas se muestran de manera aleatoria.
 
-Verás un feedback inmediato si la respuesta es correcta o incorrecta.
+- Haz clic en la respuesta que creas correcta.
 
-El estado global permite llevar el control de las respuestas sin necesidad de props complejas.
+- Verás un feedback inmediato si la respuesta es correcta o incorrecta.
 
-✅ Buenas prácticas
+- El estado global permite llevar el control de las respuestas sin necesidad de props complejas.
 
-Uso de TypeScript para tipado fuerte.
+## ✅ Buenas prácticas
 
-Componentes desacoplados y fáciles de mantener.
+- Uso de TypeScript para tipado fuerte.
 
-Hooks personalizados para lógica reutilizable.
+- Componentes desacoplados y fáciles de mantener.
 
-Estado global centralizado con Zustand.
+- Hooks personalizados para lógica reutilizable.
 
-Código formateado con Prettier y reglas de ESLint.
+- Estado global centralizado con Zustand.
 
-🎨 UI y experiencia
+- Código formateado con Prettier y reglas de ESLint.
 
-Material UI para diseño moderno y consistente.
+## 🎨 UI y experiencia
 
-Feedback visual inmediato en respuestas correctas/incorrectas.
+- Material UI para diseño moderno y consistente.
 
-Diseño responsive para móviles y escritorio.
+- Feedback visual inmediato en respuestas correctas/incorrectas.
 
-💡 Próximas mejoras
+- Diseño responsive para móviles y escritorio.
 
-Timer por pregunta.
+## 💡 Próximas mejoras
 
-Puntuación final y ranking.
+- Timer por pregunta.
 
-Modo de varias categorías.
+- Puntuación final y ranking.
 
-Animaciones y transiciones más dinámicas.
+- Modo de varias categorías.
+
+- Animaciones y transiciones más dinámicas.
