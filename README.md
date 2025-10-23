@@ -53,18 +53,16 @@ git clone https://github.com/juanchoalcoba/app-js-quizz.git
 cd app-js-quizz
 ```
 ---
-
+## Instalacion
 ```
-
 npm install
-# o si usas yarn
 yarn install
 ```
 
+
+## A jugar!!!
 ```
-
 npm run dev
-
 ```
 ---
 
