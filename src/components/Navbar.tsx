@@ -2,13 +2,19 @@ import { AppBar, Toolbar, Typography, Button, Box, Dialog, DialogTitle, DialogCo
 import { useAuthStore } from "../hooks/useAuthStore";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useQuestionsStore } from "../store/questions";
 
 export const Navbar = () => {
   const { user, isLoggedIn, logout, setOpenModal } = useAuthStore();
   const [openLogoutModal, setOpenLogoutModal] = useState(false);
+  const {reset} = useQuestionsStore()
+
+
+
 
   const handleConfirmLogout = () => {
     logout();
+    reset()
     setOpenLogoutModal(false);
   };
 
