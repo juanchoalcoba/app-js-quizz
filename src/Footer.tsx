@@ -32,7 +32,7 @@ export const Footer = () => {
     <>
       <footer style={{ marginTop: "16px" }}>
         <strong>{`✅ ${correct} correctas - ❌ ${incorrect} incorrectas - ❓ ${unanswered} sin responder`}</strong>
-        <div style={{ marginTop: "16px", display: "flex", gap: "8px" }}>
+        <div style={{ marginTop: "16px", display: "flex", gap: "8px", justifyContent: "center" }}>
           <Button onClick={() => reset()}>Reiniciar Juego</Button>
           <Button color="error" onClick={handleExit}>Salir del Juego</Button>
         </div>
