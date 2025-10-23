@@ -1,7 +1,7 @@
-import { useQquestionsStore } from "../store/questions"
+import { useQuestionsStore } from "../store/questions"
 
 export const useQuestionsData = () => {
-        const questions = useQquestionsStore(state => state.questions)
+        const questions = useQuestionsStore(state => state.questions)
 
     let correct = 0
     let incorrect = 0

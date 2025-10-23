@@ -1,10 +1,10 @@
 import {Button} from '@mui/material';
-import { useQquestionsStore } from './store/questions';
+import { useQuestionsStore } from './store/questions';
 
 const LIMIT_QUESTIONS = 10
 
 export const Start = () => {
-    const fetchQuestions = useQquestionsStore(state => state.fetchQquestions);
+    const fetchQuestions = useQuestionsStore(state => state.fetchQquestions);
 
 
     const handleClick = () => {

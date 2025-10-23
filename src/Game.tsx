@@ -1,5 +1,5 @@
 import {Card,  IconButton,  List, ListItem, ListItemButton, ListItemText, Stack, Typography} from '@mui/material'
-import { useQquestionsStore } from './store/questions'
+import { useQuestionsStore } from './store/questions'
 import type { Question as QuestionType } from './types'
 import {gradientDark} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import  SyntaxHighlighter from 'react-syntax-highlighter'
@@ -21,7 +21,7 @@ const getBackgroundColor = (info: QuestionType, index: number) => {
 
 
 const Question = ({info}: {info: QuestionType})  => {
-     const selectAnswer = useQquestionsStore((state) => state.selectAnswer);
+     const selectAnswer = useQuestionsStore((state) => state.selectAnswer);
 
     const createHandleClick = (answerIndex: number) => () => {
         selectAnswer(info.id, answerIndex)
@@ -58,10 +58,10 @@ const Question = ({info}: {info: QuestionType})  => {
 }
 
 export const Game = () => {
-    const questions = useQquestionsStore(state => state.questions)
-    const currentQuestion = useQquestionsStore(state => state.currentQuestion)
-    const goNextQuestion = useQquestionsStore(state => state.goNextQuestion)
-    const goPreviousQuestion = useQquestionsStore(state => state.goPreviousQuestion)
+    const questions = useQuestionsStore(state => state.questions)
+    const currentQuestion = useQuestionsStore(state => state.currentQuestion)
+    const goNextQuestion = useQuestionsStore(state => state.goNextQuestion)
+    const goPreviousQuestion = useQuestionsStore(state => state.goPreviousQuestion)
 
     console.log(questions)
     const questionInfo = questions[currentQuestion]

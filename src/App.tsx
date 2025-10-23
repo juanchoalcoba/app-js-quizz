@@ -2,14 +2,14 @@ import { Container, Stack, Typography } from "@mui/material";
 import "./App.css";
 import { JavascriptLogo } from "./JavascriptLogo";
 import { Start } from "./Start";
-import { useQquestionsStore } from "./store/questions";
+import { useQuestionsStore } from "./store/questions";
 import { Game } from "./Game";
 
 
 
 
 function App() {
-  const questions = useQquestionsStore(state => state.questions);
+  const questions = useQuestionsStore(state => state.questions);
   console.log(questions)
 
   return (
