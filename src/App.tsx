@@ -6,17 +6,19 @@ import { Start } from "./Start";
 import { useQuestionsStore } from "./store/questions";
 import { Game } from "./Game";
 import { VerifyEmail } from './components/VerifyEmail';
-import { Navbar } from './components/Navbar'; // ✅ Importar Navbar
+import { Navbar } from './components/Navbar';
+import { PartidasPage } from './components/PartidasPage';// ✅ importamos la nueva página
 
 function App() {
   const questions = useQuestionsStore(state => state.questions);
 
   return (
     <BrowserRouter>
-      <Navbar /> {/* ✅ Aquí se muestra siempre */}
+      <Navbar /> {/* ✅ Navbar siempre visible */}
 
       <main style={{ marginTop: "24px" }}>
         <Routes>
+          {/* Página principal */}
           <Route
             path="/"
             element={
@@ -33,8 +35,11 @@ function App() {
             }
           />
 
-          {/* Ruta de verificación de email */}
+          {/* Página de verificación de email */}
           <Route path="/verify" element={<VerifyEmail />} />
+
+          {/* ✅ Nueva página de Partidas */}
+          <Route path="/partidas" element={<PartidasPage />} />
         </Routes>
       </main>
     </BrowserRouter>

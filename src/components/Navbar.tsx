@@ -1,28 +1,27 @@
 import { AppBar, Toolbar, Typography, Button, Box, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import { useAuthStore } from "../hooks/useAuthStore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useQuestionsStore } from "../store/questions";
 
 export const Navbar = () => {
   const { user, isLoggedIn, logout, setOpenModal } = useAuthStore();
   const [openLogoutModal, setOpenLogoutModal] = useState(false);
-  const {reset} = useQuestionsStore()
-
-
-
+  const { reset } = useQuestionsStore();
+  const navigate = useNavigate(); // ✅ para redirigir
 
   const handleConfirmLogout = () => {
     logout();
-    reset()
+    reset();
     setOpenLogoutModal(false);
+    navigate("/"); // ✅ Redirige al Home luego de logout
   };
 
   return (
     <>
       <AppBar position="fixed" color="primary">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          
+
           {/* Logo o título */}
           <Typography
             variant="h6"
@@ -48,9 +47,15 @@ export const Navbar = () => {
 
             {isLoggedIn && (
               <>
+                {/* ✅ Botón Partidas solo visible cuando hay sesión */}
+                <Button color="inherit" component={Link} to="/partidas">
+                  Partidas
+                </Button>
+
                 <Typography variant="body1">
                   Hola, <strong>{user?.name}</strong>
                 </Typography>
+
                 <Button color="inherit" onClick={() => setOpenLogoutModal(true)}>
                   Logout
                 </Button>
@@ -60,7 +65,7 @@ export const Navbar = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Offset para el navbar */}
+      {/* Offset para que el contenido no quede oculto bajo el navbar */}
       <Toolbar />
 
       {/* Modal de confirmación Logout */}
