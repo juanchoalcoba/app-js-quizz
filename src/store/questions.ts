@@ -7,7 +7,7 @@ interface State {
   questions: Question[];
   currentQuestion: number;
   fetchQquestions: (limit: number) => Promise<void>;
-  selectAnswer: (questionId: number, answerIndex: number) => void;
+  selectAnswer: (questionId: number, answerIndex: number | null) => void;
   goNextQuestion: () => void;
   goPreviousQuestion: () => void;
   reset: () => void
@@ -27,7 +27,7 @@ export const useQuestionsStore = create<State>()(persist((set, get) => {
       set({ questions });
     },
 
-    selectAnswer: (questionId: number, answerIndex: number) => {
+    selectAnswer: (questionId: number, answerIndex: number | null) => {
       const { questions } = get();
 
       const newQuestions = structuredClone(questions);
