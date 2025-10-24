@@ -1,4 +1,4 @@
-# 🎮 app-js-quizz
+# 🎮 Frontend - Plataforma Interactiva de Quiz de JavaScript
 
 Una **aplicación de preguntas y respuestas** (quiz) moderna, construida con **React + TypeScript**.  
 Incluye interfaz elegante con **Material UI**, manejo de estado global con **Zustand**, y sigue **buenas prácticas de desarrollo** para un código limpio y escalable.
@@ -27,61 +27,85 @@ Incluye interfaz elegante con **Material UI**, manejo de estado global con **Zus
 
 ---
 
+## ⚡ Funcionalidades Implementadas
+
+- Login y registro de usuarios mediante modal.
+
+- Logout con confirmación para mejorar UX.
+
+- Estado global del juego usando Zustand: manejo de preguntas, respuestas del usuario, puntaje y progreso.
+
+- Renderizado dinámico de preguntas con selección de respuestas y animación de confeti para respuestas correctas.
+
+- Pantalla inicial para seleccionar dificultad antes de comenzar el juego (Fácil, Normal, Difícil).
+
+- Contador de puntaje correcto, incorrecto y sin responder.
+
+---
+
+
 ## 🚀 Instalación
 
 Clonar el repositorio:
 
-```bash
+```
 git clone https://github.com/juanchoalcoba/app-js-quizz.git
 cd app-js-quizz
-
-
+```
+---
+## Instalacion
+```
 npm install
-# o si usas yarn
 yarn install
+```
 
 
+## A jugar!!!
+```
 npm run dev
+```
+---
 
-http://localhost:5173/
+Servidor que usara el frontend: http://localhost:5173/
 
+---
 
-🧩 Uso
+## 🧩 Uso
 
-Las preguntas se muestran de manera aleatoria.
+- Las preguntas se muestran de manera aleatoria.
 
-Haz clic en la respuesta que creas correcta.
+- Haz clic en la respuesta que creas correcta.
 
-Verás un feedback inmediato si la respuesta es correcta o incorrecta.
+- Verás un feedback inmediato si la respuesta es correcta o incorrecta.
 
-El estado global permite llevar el control de las respuestas sin necesidad de props complejas.
+- El estado global permite llevar el control de las respuestas sin necesidad de props complejas.
 
-✅ Buenas prácticas
+## ✅ Buenas prácticas
 
-Uso de TypeScript para tipado fuerte.
+- Uso de TypeScript para tipado fuerte.
 
-Componentes desacoplados y fáciles de mantener.
+- Componentes desacoplados y fáciles de mantener.
 
-Hooks personalizados para lógica reutilizable.
+- Hooks personalizados para lógica reutilizable.
 
-Estado global centralizado con Zustand.
+- Estado global centralizado con Zustand.
 
-Código formateado con Prettier y reglas de ESLint.
+- Código formateado con Prettier y reglas de ESLint.
 
-🎨 UI y experiencia
+## 🎨 UI y experiencia
 
-Material UI para diseño moderno y consistente.
+- Material UI para diseño moderno y consistente.
 
-Feedback visual inmediato en respuestas correctas/incorrectas.
+- Feedback visual inmediato en respuestas correctas/incorrectas.
 
-Diseño responsive para móviles y escritorio.
+- Diseño responsive para móviles y escritorio.
 
-💡 Próximas mejoras
+## 💡 Próximas mejoras
 
-Timer por pregunta.
+- Timer por pregunta.
 
-Puntuación final y ranking.
+- Puntuación final y ranking.
 
-Modo de varias categorías.
+- Modo de varias categorías.
 
-Animaciones y transiciones más dinámicas.
+- Animaciones y transiciones más dinámicas.
