@@ -5,8 +5,10 @@ import { gradientDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 import { Footer } from './Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { QuestionTimer } from './components/QuestionsTimer';
+
+
 
 export const Game = () => {
   const questions = useQuestionsStore((state) => state.questions);
@@ -14,10 +16,31 @@ export const Game = () => {
   const goNextQuestion = useQuestionsStore((state) => state.goNextQuestion);
   const goPreviousQuestion = useQuestionsStore((state) => state.goPreviousQuestion);
   const selectAnswer = useQuestionsStore((state) => state.selectAnswer);
+  const saveSession = useQuestionsStore((state) => state.saveSession); // <- nueva acción
+  const reset = useQuestionsStore((state) => state.reset);
+
 
   const questionInfo = questions[currentQuestion];
   const [stopTimer, setStopTimer] = useState(false);
   const [showCorrect, setShowCorrect] = useState(false); // <- nuevo estado para mostrar correcta
+   const [sessionSaved, setSessionSaved] = useState(false); // <- control para guardar solo una vez
+   const [gameFinished, setGameFinished] = useState(false);
+
+
+useEffect(() => {
+  const isLastQuestion = currentQuestion === questions.length - 1;
+  const lastQuestionAnswered = questions[currentQuestion]?.userSelectedAnswer != null;
+
+  if (isLastQuestion && lastQuestionAnswered && !sessionSaved) {
+    setSessionSaved(true);
+
+    setTimeout(() => {
+      saveSession();
+      setGameFinished(true); // ✅ marcar fin del juego
+    }, 1500);
+  }
+}, [currentQuestion, questions, sessionSaved, saveSession]);
+
 
   if (!questionInfo) return <Typography>Cargando preguntas...</Typography>;
 
@@ -63,6 +86,31 @@ export const Game = () => {
       setStopTimer(false); // reinicia timer
     }, 1500);
   };
+
+  
+  if (gameFinished) {
+  return (
+    <Stack alignItems="center" mt={4} gap={2}>
+      <Typography variant="h4">¡Juego terminado! ✅</Typography>
+      
+      <button 
+        style={{ 
+          padding: "12px 20px",
+          fontSize: "18px",
+          cursor: "pointer",
+          background: "#1976d2",
+          color: "white",
+          border: "none",
+          borderRadius: "8px"
+        }} 
+        onClick={reset} // ✅ sin paréntesis
+      >
+        Volver a jugar
+      </button>
+    </Stack>
+  );
+}
+
 
   return (
     <>

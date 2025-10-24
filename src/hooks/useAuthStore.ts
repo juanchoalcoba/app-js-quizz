@@ -31,10 +31,8 @@ export const useAuthStore = create<AuthState>()(
       loading: false,
       error: undefined,
       openModal: false,
-
       setOpenModal: (open: boolean) => set({ openModal: open }),
       setError: (error) => set({ error }),
-
       register: async (name, email, password) => {
         set({ loading: true, error: undefined });
         try {
@@ -57,7 +55,6 @@ export const useAuthStore = create<AuthState>()(
           set({ loading: false });
         }
       },
-
       verifyEmail: async (token, id) => {
         set({ loading: true, error: undefined });
         try {
@@ -75,34 +72,36 @@ export const useAuthStore = create<AuthState>()(
           set({ loading: false });
         }
       },
-
+      
       login: async (email, password) => {
-        set({ loading: true, error: undefined });
-        try {
-          const res = await fetch('http://localhost:3000/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
-          });
+  set({ loading: true, error: undefined });
+  try {
+    const res = await fetch('http://localhost:3000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-          const data: { user: User; token: string; message?: string } = await res.json();
+    const data: { user: User; token: string; message?: string } = await res.json();
 
-          if (!res.ok) throw new Error(data.message || 'Error en login');
+    if (!res.ok) throw new Error(data.message || 'Error en login');
 
-          set({
-            user: data.user,
-            token: data.token,
-            isLoggedIn: true,
-          });
-        } catch (err: unknown) {
-          const message = err instanceof Error ? err.message : String(err);
-          set({ error: message });
-          throw new Error(message);
-        } finally {
-          set({ loading: false });
-        }
-      },
+    // ✅ GUARDA EL TOKEN EN LOCALSTORAGE
+    localStorage.setItem('token', data.token);
 
+    set({
+      user: data.user,
+      token: data.token,
+      isLoggedIn: true,
+    });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    set({ error: message });
+    throw new Error(message);
+  } finally {
+    set({ loading: false });
+  }
+},
       logout: () => set({ user: undefined, token: undefined, isLoggedIn: false }),
     }),
     { name: 'auth' } // Persistencia en localStorage
