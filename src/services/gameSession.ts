@@ -1,7 +1,7 @@
 import type { Question } from "../types";
 import { useAuthStore } from "../hooks/useAuthStore";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.API_URL;
 
 export const saveGameSession = async (sessionData: {
   questions: Question[];
